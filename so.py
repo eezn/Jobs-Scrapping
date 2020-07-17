@@ -38,6 +38,7 @@ def extract_jobs(last_page):
         result = requests.get(f"{URL}&pg={page+1}")
         soup = BeautifulSoup(result.text, "html.parser")
         results = soup.find_all("div", {"class": "-job"})
+        print(results)
         for result in results:
             job = extract_job(result)
             jobs.append(job)
@@ -48,3 +49,8 @@ def get_jobs():
     last_page = get_last_page()
     jobs = extract_jobs(last_page)
     return jobs
+
+
+if __name__ == "__main__":
+    last_page = get_last_page()
+    extract_jobs(last_page)
