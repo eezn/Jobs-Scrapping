@@ -84,4 +84,4 @@ def save_to_file(details, company):
 
 if __name__ == "__main__":
     brands = get_brand()
-    details = get_details(brands)
+    get_details(brands)
